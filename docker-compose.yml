@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+    try-tmux: 
+      build: tmux
+      image: tmux
+      container_name: try-tmux
+      command: >- 
+        sh -c "tmux new -d -s session -n window &&
+        tmux send-keys -t session:window 'while true; do echo "qualcosa"; sleep 1; done' C-m &&
+        tail -f /dev/null"

@@ -1,7 +1,9 @@
 Per vedere entrare nella sessione attiva:
+
 ```tmux a -t session```
 
 Per visualizzare le diverse sessioni attive:
+
 ```tmux ls```
 
 Per uscire dalla sessione di tmux senza bloccare il comando 

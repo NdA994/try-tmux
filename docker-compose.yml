@@ -1,11 +1,17 @@
 version: "3"
 
 services:
-    try-tmux: 
+    solution-1: 
       build: tmux
       image: tmux
-      container_name: try-tmux
+      container_name: solution-1
       command: >- 
-        sh -c "tmux new -d -s session -n window &&
-        tmux send-keys -t session:window 'while true; do echo "qualcosa"; sleep 1; done' C-m &&
+        sh -c "tmux new -d -s session-1 -n window &&
+        tmux send-keys -t session-1:window 'while true; do echo \"Task 1\"; sleep 1; done' C-m &&
+        tmux new -d -s session-2 -n window &&
+        tmux send-keys -t session-2:window 'while true; do echo \"Task 2\"; sleep 1; done' C-m &&
+        tmux new -d -s session-3 -n window &&
+        tmux send-keys -t session-3:window 'while true; do echo \"Task 3\"; sleep 1; done' C-m &&
+        tmux new -d -s session-4 -n window &&
+        tmux send-keys -t session-4:window 'while true; do echo \"Task 4\"; sleep 1; done' C-m &&
         tail -f /dev/null"

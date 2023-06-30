@@ -15,3 +15,18 @@ services:
         tmux new -d -s session-4 -n window &&
         tmux send-keys -t session-4:window 'while true; do echo \"Task 4\"; sleep 1; done' C-m &&
         tail -f /dev/null"
+
+    solution-2: 
+      build: tmux
+      image: tmux
+      container_name: solution-2
+      command: >- 
+        sh -c "tmux new -d -s session-1 -n window-1 &&
+        tmux send-keys -t session-1:window-1 'while true; do echo \"Task 1\"; sleep 1; done' C-m &&
+        tmux new-window -t session-1 -n window-2 &&
+        tmux send-keys -t session-1:window-2 'while true; do echo \"Task 2\"; sleep 1; done' C-m &&
+        tmux new-window -t session-1 -n window-3 &&
+        tmux send-keys -t session-1:window-3 'while true; do echo \"Task 3\"; sleep 1; done' C-m &&
+        tmux new-window -t session-1 -n window-4 && 
+        tmux send-keys -t session-1:window-4 'while true; do echo \"Task 4\"; sleep 1; done' C-m &&
+        tail -f /dev/null"
